@@ -17,8 +17,16 @@ intervalCount(function() {
 ***********************************************************************/
 
 function intervalCount(cb, delay, amount) {
-  // Your code here 
+  let counter = 0; // Initialize a counter variable to keep track of callback executions
+  const interval = setInterval(function () {
+      cb(); // Call the provided callback function
+      counter++; // Increment the counter
+      if (counter === amount) { // Check if the counter reached the specified amount
+          clearInterval(interval); // Stop the interval execution
+      }
+  }, delay); // Set interval to call the callback function at given delay
 }
+
 
 /**************DO NOT MODIFY ANYTHING UNDER THIS  LINE*****************/
 try {
